@@ -12,6 +12,7 @@ public class GetProperty {
     public static String init_properties(String expectedString){
 
 
+
         prop = new java.util.Properties();
         try {
             FileInputStream file = new FileInputStream("src/main/java/config/config.properties");

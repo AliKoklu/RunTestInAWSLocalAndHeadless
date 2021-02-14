@@ -84,6 +84,13 @@ public class Page {
     @FindBy(xpath = "//div[@class='alert alert-success']")
     public WebElement text_Success_message;
 
+// Pay bills
+
+    @FindBy(xpath = " //a[text()='Pay Bills']")
+    public WebElement Button_Pay_Bills;
+
+    @FindBy(xpath = " //a[text()='Add New Payee']")
+    public WebElement Button_Add_New_Payee;
 
 
 

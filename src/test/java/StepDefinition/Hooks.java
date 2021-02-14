@@ -23,7 +23,7 @@ public class Hooks {
 
 
     @Before
-    public void BeforeMethod(){
+    public void BeforeMethod() throws InterruptedException {
         driver = DriverClass.GetDriver();
         driver.manage().window().maximize();
         driver.get("http://zero.webappsecurity.com/login.html");
@@ -31,6 +31,7 @@ public class Hooks {
         page.input_user_password.sendKeys(GetProperty.init_properties("password"));
         page.signUnButton.click();
 
+        Thread.sleep(2000);
         if(GetProperty.init_properties("where").equalsIgnoreCase("local")||GetProperty.init_properties("where").equalsIgnoreCase("AWS")) {
             page.button_advanced.click();
             page.button_proceed_link.click();
@@ -49,10 +50,10 @@ public class Hooks {
         }
 
 
-
-        if (driver != null) {
-            driver.quit();
-            driver=null;
-        }
+//
+//        if (driver != null) {
+//            driver.quit();
+//            driver=null;
+//        }
     }
 }
