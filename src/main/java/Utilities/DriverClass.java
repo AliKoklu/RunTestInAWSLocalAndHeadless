@@ -30,7 +30,7 @@ public class DriverClass {
         System.out.println(driverLocal);
         System.out.println(driverLocal);
 
-        if(driver == null && driverLocal == null && headLess == null ) {
+        if (driver == null && driverLocal == null && headLess == null) {
             if (GetProperty.init_properties("where").equalsIgnoreCase("local")) {
 
                 ChromeDriverManager.chromedriver().setup();
@@ -83,16 +83,31 @@ public class DriverClass {
 
                 return headLess;
             }
-        }else if(GetProperty.init_properties("where").equalsIgnoreCase("local")){
+        } else if (GetProperty.init_properties("where").equalsIgnoreCase("local")) {
 
             System.out.println("second local");
 
             return driverLocal;
-        }else if(GetProperty.init_properties("where").equalsIgnoreCase("AWS")){
+        } else if (GetProperty.init_properties("where").equalsIgnoreCase("AWS")) {
             return driver;
-        }else {
+        } else {
             System.out.println("in the html ");
             return headLess;
+        }
+
+    }
+
+    public static void quitDriver() {
+
+        if (driver != null) {
+            driver.quit();
+            driver = null;
+        } else if (driverLocal != null) {
+            driverLocal.quit();
+            driverLocal = null;
+        } else if (headLess != null) {
+            headLess.quit();
+            headLess = null;
         }
 
     }

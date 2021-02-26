@@ -44,16 +44,12 @@ public class Hooks {
 
         File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         try {
-            FileUtils.copyFile(file, new File("target/screenshot.png"));
+            FileUtils.copyFile(file, new File("target/"+scenario.getName()+".png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+        DriverClass.quitDriver();
 
-//
-//        if (driver != null) {
-//            driver.quit();
-//            driver=null;
-//        }
     }
 }
